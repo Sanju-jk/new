@@ -5,7 +5,12 @@ function Contact() {
     const [state, handleSubmit] = useForm("mgvwbovv");
 
     if (state.succeeded) {
-        return <p className="text-center text-green-500 text-lg">Thanks for joining!</p>;
+        return (
+            <div className="text-center text-green-500 text-lg">
+                <p>Thank you for your message!</p>
+                <p>I'll get back to you as soon as possible.</p>
+            </div>
+        );
     }
 
     return (
@@ -19,6 +24,7 @@ function Contact() {
                     onSubmit={handleSubmit}
                     className="bg-stone-900 p-8 rounded-lg shadow-lg"
                 >
+                    {/* Email Address */}
                     <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                         Email Address
                     </label>
@@ -26,6 +32,7 @@ function Contact() {
                         id="email"
                         type="email"
                         name="email"
+                        placeholder="Your email address"
                         className="w-full border border-gray-300 rounded-md p-2 mb-4"
                     />
                     <ValidationError
@@ -34,12 +41,32 @@ function Contact() {
                         errors={state.errors}
                     />
 
+                    {/* Phone Number */}
+                    <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
+                        Phone Number
+                    </label>
+                    <input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="Your phone number"
+                        className="w-full border border-gray-300 rounded-md p-2 mb-4"
+                    />
+                    <ValidationError
+                        prefix="Phone"
+                        field="phone"
+                        errors={state.errors}
+                    />
+
+
+                    {/* Message */}
                     <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                         Message
                     </label>
                     <textarea
                         id="message"
                         name="message"
+                        placeholder="Your message"
                         className="w-full border border-gray-300 rounded-md p-2 mb-4"
                     />
                     <ValidationError
@@ -53,12 +80,25 @@ function Contact() {
                         <button
                             type="submit"
                             disabled={state.submitting}
-                            className="w-36 text-white border-2 border-purple-500 p-2 rounded-xl hover:bg-purple-600 transition"
+                            className="w-36 text-white border-2 border-purple-500 p-2 rounded-xl hover:bg-gray-200 hover:text-purple-600 transition"
                         >
                             Submit
                         </button>
                     </div>
                 </form>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center space-x-4 mt-6">
+                <a href="https://twitter.com/yourprofile" className="text-blue-400 hover:text-blue-600">
+                    Twitter
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" className="text-blue-700 hover:text-blue-900">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/yourprofile" className="text-gray-400 hover:text-gray-600">
+                    GitHub
+                </a>
             </div>
         </div>
     );
