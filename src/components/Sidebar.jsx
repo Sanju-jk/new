@@ -17,7 +17,7 @@ const Sidebar = () => {
                 <ul className='text-4xl mx-12 text-gray-300'>
                     <li className="my-4">
                         <NavLink
-                            to="/about"
+                            to="/"
                             className={({ isActive }) =>
                                 isActive ? "text-xl hover:text-purple-500 text-purple-500" : "text-xl hover:text-purple-500"
                             }

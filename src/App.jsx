@@ -14,7 +14,7 @@ const App = () => {
                 <Sidebar />
                 <div className="ml-64 w-full">
                     <Routes>
-                        <Route path="/about" element={<About />} />
+                        <Route path="/" element={<About />} />
                         <Route path="/experience" element={<Experience />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/skills" element={<Skills />} />

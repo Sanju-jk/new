@@ -88,10 +88,10 @@ function Skills() {
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className="bg-slate-100 p-4 rounded-lg shadow-lg flex flex-col items-center"
+                        className="bg-slate-100 p-4 rounded-xl  flex flex-col items-center"
                     >
                         {/* Skill Icon */}
-                        <i className={`${skill.icon} ${skill.color} text-4xl mb-4`}></i>
+                        <i className={`${skill.icon} ${skill.color} text-4xl mb-4  bg-slate-100 `}></i>
                         <p className="text-center text-gray-700 mb-4 font-semibold">{skill.skill}</p>
                         <p className="text-center text-gray-600 mb-4">{skill.description}</p>
                         
