@@ -3,97 +3,75 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
-        <div className="h-screen bg-neutral-900 text-white w-60 fixed">
+        <div className="h-screen bg-neutral-900 text-white w-64 fixed shadow-lg">
+            {/* Profile Image */}
             <div className="p-6 text-center">
-                <img 
-                    src='https://images.pexels.com/photos/7534339/pexels-photo-7534339.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load' 
-                    alt='profile Image' 
-                    className='h-40 w-40 rounded-full mx-auto mt-7' 
+                <img
+                    src='https://images.pexels.com/photos/7534339/pexels-photo-7534339.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load'
+                    alt='Profile'
+                    className='h-36 w-36 rounded-full mx-auto border-4 border-gray-700 shadow-lg'
                 />
-                <br /><hr className="border-1 border-purple-500" />
+                <h2 className="text-2xl mt-4 font-semibold text-gray-100">Sanju Jaikumar</h2>
+                <p className="text-sm text-gray-400">Front-end Developer</p>
+                <hr className="mt-4 border-blue-500" />
             </div>
 
-            <nav className="mt-2 ">
-                <ul className='text-4xl mx-12 text-gray-300'>
-                    <li className="my-4">
-                        <NavLink
-                            to="/"
-                            className={({ isActive }) =>
-                                isActive ? "text-xl hover:text-purple-500 text-purple-500" : "text-xl hover:text-purple-500"
-                            }
-                        >
-                            <i className="fa-solid fa-user me-2"></i> About
-                        </NavLink>
-                    </li>
-                    <li className="my-4">
-                        <NavLink
-                            to="/experience"
-                            className={({ isActive }) =>
-                                isActive ? "text-xl hover:text-purple-500 text-purple-500" : "text-xl hover:text-purple-500"
-                            }
-                        >
-                            <i className="fa-solid fa-briefcase me-2"></i> Experience
-                        </NavLink>
-                    </li>
-                    <li className="my-4">
-                        <NavLink
-                            to="/skills"
-                            className={({ isActive }) =>
-                                isActive ? "text-xl hover:text-purple-500 text-purple-500" : "text-xl hover:text-purple-500"
-                            }
-                        >
-                            <i className="fa-solid fa-code me-2"></i> Skills
-                        </NavLink>
-                    </li>
-                    <li className="my-4">
-                        <NavLink
-                            to="/projects"
-                            className={({ isActive }) =>
-                                isActive ? "text-xl hover:text-purple-500 text-purple-500" : "text-xl hover:text-purple-500"
-                            }
-                        >
-                            <i className="fa-solid fa-diagram-project me-2"></i> Projects
-                        </NavLink>
-                    </li>
-                    <li className="my-4">
-                        <NavLink
-                            to="/contact"
-                            className={({ isActive }) =>
-                                isActive ? "text-xl hover:text-purple-500 text-purple-500" : "text-xl hover:text-purple-500"
-                            }
-                        >
-                            <i className="fa-solid fa-envelope me-2"></i> Contact
-                        </NavLink>
-                    </li>
+            {/* Navigation Links */}
+            <nav className="mt-6">
+                <ul className="text-lg mx-6 text-gray-300 space-y-6">
+                    {[
+                        { to: "/", label: "About", icon: "fa-user" },
+                        { to: "/experience", label: "Experience", icon: "fa-briefcase" },
+                        { to: "/skills", label: "Skills", icon: "fa-code" },
+                        { to: "/projects", label: "Projects", icon: "fa-diagram-project" },
+                        // Uncomment if Contact is needed
+                        // { to: "/contact", label: "Contact", icon: "fa-envelope" }
+                    ].map(({ to, label, icon }) => (
+                        <li key={to}>
+                            <NavLink
+                                to={to}
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-500 font-semibold" : "hover:text-blue-400"
+                                }
+                            >
+                                <i className={`fa-solid ${icon} mr-3`}></i> {label}
+                            </NavLink>
+                        </li>
+                    ))}
                 </ul>
             </nav>
 
-            <br />
-            <hr className="border-1 border-purple-500" />
-
-            <div className='flex my-8  justify-center text-2xl space-x-6'>
-                <a 
-                    href="https://www.linkedin.com/in/sanju-jai-kumar-929282203?trk=contact-info" 
-                    target='_blank' 
-                    rel="noopener noreferrer" 
-                    title="LinkedIn Profile"
-                >
-                    <i className="fa-brands fa-linkedin text-blue-500 hover:text-white cursor-pointer"></i>
-                </a>
-                <a 
-                    href="https://github.com/Sanju-jk" 
-                    target='_blank' 
-                    rel="noopener noreferrer" 
-                    title="GitHub Profile"
-                >
-                    <i className="fa-brands fa-github text-gray-400 hover:text-white cursor-pointer"></i>
-                </a>
-                <a 
-                    href="mailto:sanju12jk@gmail.com" 
-                    title="Telegram"
-                >
-                    <i className="fa-brands fa-whatsapp text-green-400  hover:text-gray-300 cursor-pointer"></i>
-                </a>
+            {/* Social Links */}
+            <div className='mt-auto mb-6 p-6'>
+                <hr className="border-blue-500 mb-6 mt-4" />
+                <div className='flex justify-center space-x-6'>
+                    <a
+                        href="https://www.linkedin.com/in/sanju-jai-kumar-929282203?trk=contact-info"
+                        target='_blank'
+                        rel="noopener noreferrer"
+                        title="LinkedIn Profile"
+                        className="text-blue-400 hover:text-blue-500 transition-colors duration-300 text-2xl"
+                    >
+                        <i className="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a
+                        href="https://github.com/Sanju-jk"
+                        target='_blank'
+                        rel="noopener noreferrer"
+                        title="GitHub Profile"
+                        className="text-gray-400 hover:text-gray-200 transition-colors duration-300 text-2xl"
+                    >
+                        <i className="fa-brands fa-github"></i>
+                    </a>
+                    {/* Uncomment if WhatsApp is needed */}
+                    {/* <a
+                        href="mailto:sanju12jk@gmail.com"
+                        title="Email"
+                        className="text-green-400 hover:text-green-500 transition-colors duration-300 text-2xl"
+                    >
+                        <i className="fa-brands fa-whatsapp"></i>
+                    </a> */}
+                </div>
             </div>
         </div>
     );
