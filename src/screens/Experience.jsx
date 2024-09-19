@@ -42,7 +42,9 @@ const experiences = [
 const Experience = () => {
   return (
     <div className="max-w-5xl mx-auto p-8 bg-gray-900 text-white">
-      <h1 className="text-5xl font-bold mb-12 text-center">Experience</h1>
+      <h1 className="text-4xl font-bold mb-12 text-center">
+        <i className='fa fa-briefcase text-yellow-500'></i> Experience
+      </h1>
       <div className="relative border-l-4 border-blue-500">
         {experiences.map((experience, index) => (
           <div key={index} className="mb-12 pl-8 relative">
@@ -53,7 +55,7 @@ const Experience = () => {
 
             {/* Timeline content */}
             <p className="text-sm text-gray-400 mb-1">{experience.date}</p>
-            <h2 className="text-2xl font-bold">{experience.title}</h2>
+            <h2 className="text-2xl font-bold mb-1">{experience.title}</h2>
             <h3 className="text-xl font-semibold text-gray-300 mb-2">{experience.company}</h3>
             <p className="text-gray-400">{experience.description}</p>
           </div>
