@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from './ThemeContext';
 import Sidebar from './components/Sidebar';
 import About from './screens/About';
 import Experience from './screens/Experience';
@@ -7,8 +8,11 @@ import Projects from './screens/Projects';
 import Skills from './screens/Skills';
 import Contact from './screens/Contact';
 
+
+
 const App = () => {
     return (
+        <ThemeProvider>
         <Router>
             <div className="flex">
                 <Sidebar />
@@ -23,6 +27,7 @@ const App = () => {
                 </div>
             </div>
         </Router>
+        </ThemeProvider>
     );
 }
 

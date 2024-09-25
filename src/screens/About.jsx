@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../ThemeContext'; // Import the ThemeContext
 
 const About = () => {
+    // const { theme } = useContext(ThemeContext); // Get the current theme
+    const { theme } = useContext(ThemeContext); // Get the current theme
+
+
     return (
-        <div className="flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-10 relative text-gray-200 min-h-screen">
+        <div className={`flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-10 relative min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-neutral-900 text-gray-200' : 'bg-gray-100 text-gray-800'}`}>
+   
             {/* Download Resume and Contact Button */}
             <div className="absolute top-6 right-6">
                 <a
                     href="/resume.png"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white border border-blue-500 px-6 py-3 rounded-md shadow-md hover:bg-blue-500 hover:text-white transition-all duration-300"
+                    className={`px-6 py-3 rounded-md shadow-md transition-all duration-300 ${theme === 'dark'
+                        ? 'text-white border border-blue-500 hover:bg-blue-500'
+                        : 'text-gray-800 border border-blue-500 hover:bg-blue-500 hover:text-white'
+                        }`}
                 >
                     View Resume
                 </a>
-                <Link to="/contact" className="text-white border mx-4 border-blue-500 px-6 py-3 rounded-md shadow-md hover:bg-blue-500 hover:text-white transition-all duration-300">
+                <Link
+                    to="/contact"
+                    className={`mx-4 px-6 py-3 rounded-md shadow-md transition-all duration-300 ${theme === 'dark'
+                        ? 'text-white border border-blue-500 hover:bg-blue-500'
+                        : 'text-gray-800 border border-blue-500 hover:bg-blue-500 hover:text-white'
+                        }`}
+                >
                     Contact Me
                 </Link>
             </div>
@@ -24,23 +39,23 @@ const About = () => {
                 <h1 className="text-5xl lg:text-6xl font-extrabold mb-4">
                     Hello, I'm <span className="text-blue-500">Sanju</span>
                 </h1>
-                <p className="text-xl lg:text-2xl font-light text-gray-400 leading-relaxed">
-                    A dedicated web developer specializing in creating responsive, intuitive web applications using React and JavaScript.
+                <p className={`text-xl lg:text-2xl font-light leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                    A dedicated web developer specializing in creating responsive, intuitive web applications using React.JS and JavaScript.
                 </p>
 
-                <p className="text-lg lg:text-xl text-slate-100 leading-relaxed">
-                    With over a year of experience, I focus on clean, user-centered interfaces and seamless user experiences. I’m also enhancing my skills in full-stack development.
+                <p className={`text-lg lg:text-xl leading-relaxed ${theme === 'dark' ? 'text-slate-100' : 'text-gray-700'}`}>
+                    I focus on clean, user-centered interfaces and seamless user experiences. I’m also enhancing my skills in full-stack development.
                 </p>
 
                 {/* Hobbies and Interests Section */}
-                <h2 className="text-2xl font-semibold text-white mt-8">Hobbies & Interests</h2>
-                <p className="text-lg text-gray-300">
+                <h2 className="text-2xl font-semibold mt-8">Hobbies & Interests</h2>
+                <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                     Outside of coding, I enjoy exploring new tech, cooking, and traveling.
                 </p>
 
                 {/* Career Goals Section */}
-                <h2 className="text-2xl font-semibold text-gray-200 mt-8">Career Goals</h2>
-                <p className="text-lg text-gray-300">
+                <h2 className="text-2xl font-semibold mt-8">Career Goals</h2>
+                <p className={`text-lg ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                     My goal is to master full-stack development, integrating design and functionality to build complete web solutions.
                 </p>
             </div>

@@ -1,9 +1,15 @@
-import React from 'react';
+// Sidebar.js
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { ThemeContext } from '../ThemeContext'; // Import the context
 
 const Sidebar = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext); // Get theme and toggle function
+
+
     return (
-        <div className="h-screen bg-neutral-900 text-white w-64 fixed shadow-lg">
+        <div className={`h-screen ${theme === 'dark' ? 'bg-neutral-900 text-white' : 'bg-white text-black'} w-64 fixed shadow-lg`}>
+
             {/* Profile Image */}
             <div className="p-6 text-center">
                 <img
@@ -11,21 +17,19 @@ const Sidebar = () => {
                     alt='Profile'
                     className='h-36 w-36 rounded-full mx-auto border-4 border-gray-700 shadow-lg'
                 />
-                <h2 className="text-2xl mt-4 font-semibold text-gray-100">Sanju Jaikumar</h2>
+                <h2 className="text-2xl mt-4 font-semibold">Sanju Jaikumar</h2>
                 <p className="text-sm text-gray-400">Front-end Developer</p>
                 <hr className="mt-4 border-blue-500" />
             </div>
 
             {/* Navigation Links */}
             <nav className="mt-6">
-                <ul className="text-lg mx-6 text-gray-300 space-y-6">
+                <ul className="text-lg  space-y-6 mx-16">
                     {[
                         { to: "/", label: "About", icon: "fa-user" },
                         { to: "/experience", label: "Experience", icon: "fa-briefcase" },
                         { to: "/skills", label: "Skills", icon: "fa-code" },
                         { to: "/projects", label: "Projects", icon: "fa-diagram-project" },
-                        // Uncomment if Contact is needed
-                        // { to: "/contact", label: "Contact", icon: "fa-envelope" }
                     ].map(({ to, label, icon }) => (
                         <li key={to}>
                             <NavLink
@@ -40,6 +44,8 @@ const Sidebar = () => {
                     ))}
                 </ul>
             </nav>
+
+
 
             {/* Social Links */}
             <div className='mt-auto mb-6 p-6'>
@@ -63,15 +69,25 @@ const Sidebar = () => {
                     >
                         <i className="fa-brands fa-github"></i>
                     </a>
-                    {/* Uncomment if WhatsApp is needed */}
-                    {/* <a
-                        href="mailto:sanju12jk@gmail.com"
-                        title="Email"
-                        className="text-green-400 hover:text-green-500 transition-colors duration-300 text-2xl"
-                    >
-                        <i className="fa-brands fa-whatsapp"></i>
-                    </a> */}
                 </div>
+            </div>
+
+            {/* Theme Switcher */}
+            <div className="mt-6 flex justify-center">
+                <label className="inline-flex items-center cursor-pointer">
+                    <input
+                        type="checkbox"
+                        className="hidden"
+                        onChange={toggleTheme}
+                        checked={theme === 'dark'}
+                    />
+                    <div className="toggle-bg w-14 h-8 bg-gray-400 rounded-full p-1 duration-300 ease-in-out">
+                        <div className={`dot w-6 h-6 bg-white rounded-full shadow-md transform ${theme === 'dark' ? 'translate-x-6' : ''}`}></div>
+                    </div>
+                    <span className="ml-3 text-sm">
+                        {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
+                    </span>
+                </label>
             </div>
         </div>
     );

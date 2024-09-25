@@ -1,14 +1,14 @@
-//Using formspree api
-
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { ThemeContext } from '../ThemeContext'; // Adjust the path as necessary
 
 function Contact() {
     const [state, handleSubmit] = useForm("mgvwbovv");
+    const { theme } = useContext(ThemeContext); // Get the current theme
 
     if (state.succeeded) {
         return (
-            <div className="text-center text-green-500 text-lg mt-12">
+            <div className={`text-center text-green-500 text-lg mt-12`}>
                 <p>Thank you for your message!</p>
                 <p>I will get back to you shortly.</p>
             </div>
@@ -16,18 +16,20 @@ function Contact() {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center min-h-screen p-4 ">
+        <div className={`flex flex-col justify-center items-center min-h-screen p-4 ${theme === 'light' ? 'bg-gray-100' : 'bg-gray-900'}`}>
             {/* Heading */}
-            <h1 className="font-poppins text-4xl lg:text-5xl text-center text-white mb-10">Get in Touch</h1>
+            <h1 className={`font-poppins text-4xl lg:text-5xl text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'} mb-10`}>
+                Get in Touch
+            </h1>
 
             {/* Form Container */}
             <div className="w-full max-w-lg">
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-stone-800 p-8 rounded-lg shadow-lg"
+                    className={`p-8 rounded-lg shadow-lg border ${theme === 'light' ? 'bg-gray-200 border-gray-300' : 'bg-gray-800 border-gray-700'}`}
                 >
                     {/* Email Address */}
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="email" className={`block text-sm font-medium ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} mb-2`}>
                         Email Address
                     </label>
                     <input
@@ -35,13 +37,13 @@ function Contact() {
                         type="email"
                         name="email"
                         placeholder="Your email address"
-                        className="w-full border border-gray-400 rounded-md p-2 mb-4 bg-neutral-300 text-white"
+                        className={`w-full border border-gray-600 rounded-md p-2 mb-4 ${theme === 'light' ? 'bg-white text-gray-900 placeholder-gray-500' : 'bg-gray-700 text-white placeholder-gray-500'}`}
                         required
                     />
                     <ValidationError prefix="Email" field="email" errors={state.errors} />
 
                     {/* Phone Number */}
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="phone" className={`block text-sm font-medium ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} mb-2`}>
                         Phone Number
                     </label>
                     <input
@@ -49,19 +51,19 @@ function Contact() {
                         type="tel"
                         name="phone"
                         placeholder="Your phone number"
-                        className="w-full border border-gray-400 rounded-md p-2 mb-4 bg-neutral-300 text-white"
+                        className={`w-full border border-gray-600 rounded-md p-2 mb-4 ${theme === 'light' ? 'bg-white text-gray-900 placeholder-gray-500' : 'bg-gray-700 text-white placeholder-gray-500'}`}
                     />
                     <ValidationError prefix="Phone" field="phone" errors={state.errors} />
 
                     {/* Message */}
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="message" className={`block text-sm font-medium ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} mb-2`}>
                         Message
                     </label>
                     <textarea
                         id="message"
                         name="message"
                         placeholder="Your message"
-                        className="w-full border border-gray-400 rounded-md p-2 mb-4 bg-neutral-300 text-white"
+                        className={`w-full border border-gray-600 rounded-md p-2 mb-4 ${theme === 'light' ? 'bg-white text-gray-900 placeholder-gray-500' : 'bg-gray-700 text-white placeholder-gray-500'}`}
                         rows="5"
                         required
                     />
@@ -72,7 +74,7 @@ function Contact() {
                         <button
                             type="submit"
                             disabled={state.submitting}
-                            className="w-40 text-white border-2 border-blue-500 p-2 rounded-lg hover:bg-blue-600 transition-all duration-300"
+                            className={`w-40 text-white border-2 border-teal-500 p-2 rounded-lg ${theme === 'light' ? 'bg-teal-600 hover:bg-teal-500' : 'bg-teal-700 hover:bg-teal-600'} transition-all duration-300`}
                         >
                             Send Message
                         </button>
@@ -82,13 +84,10 @@ function Contact() {
 
             {/* Social Media Links */}
             <div className="flex justify-center space-x-6 mt-8">
-                {/* <a href="https://twitter.com/yourprofile" className="text-blue-400 hover:text-blue-500 text-xl transition">
-                    Twitter
-                </a> */}
-                <a href="https://linkedin.com/in/yourprofile" className="text-blue-700 hover:text-blue-800 text-xl transition">
+                <a href="https://linkedin.com/in/yourprofile" className={`text-xl transition ${theme === 'light' ? 'text-blue-500 hover:text-blue-600' : 'text-blue-400 hover:text-blue-500'}`}>
                     LinkedIn
                 </a>
-                <a href="https://github.com/yourprofile" className="text-gray-400 hover:text-gray-500 text-xl transition">
+                <a href="https://github.com/yourprofile" className={`text-xl transition ${theme === 'light' ? 'text-gray-700 hover:text-gray-800' : 'text-gray-400 hover:text-gray-500'}`}>
                     GitHub
                 </a>
             </div>

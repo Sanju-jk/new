@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../ThemeContext'; // Import the context
 
 const experiences = [
   {
@@ -40,26 +41,30 @@ const experiences = [
 ];
 
 const Experience = () => {
-  return (
-    <div className="max-w-5xl mx-auto p-8 bg-gray-900 text-white">
-      <h1 className="text-4xl font-bold mb-12 text-center">
-        <i className='fa fa-briefcase text-yellow-500'></i> Experience
-      </h1>
-      <div className="relative border-l-4 border-blue-500">
-        {experiences.map((experience, index) => (
-          <div key={index} className="mb-12 pl-8 relative">
-            {/* Dot */}
-            <div className="absolute w-8 h-8 bg-blue-500 rounded-full -left-4 top-1.5 shadow-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-gray-900 rounded-full"></div>
-            </div>
+  const { theme } = useContext(ThemeContext); // Get the current theme
 
-            {/* Timeline content */}
-            <p className="text-sm text-gray-400 mb-1">{experience.date}</p>
-            <h2 className="text-2xl font-bold mb-1">{experience.title}</h2>
-            <h3 className="text-xl font-semibold text-gray-300 mb-2">{experience.company}</h3>
-            <p className="text-gray-400">{experience.description}</p>
-          </div>
-        ))}
+  return (
+    <div className={`${theme === 'light' ? 'bg-gray-100' : 'bg-gray-900'} min-h-screen`}>
+      <div className={`max-w-5xl mx-auto p-8 min-h-screen ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-900 text-white'}`}>
+        <h1 className="text-4xl font-bold mb-12 text-center">
+          <i className="fa fa-briefcase text-yellow-500"></i> Experience
+        </h1>
+        <div className={`relative border-l-4 ${theme === 'light' ? 'border-blue-600' : 'border-blue-500'}`}>
+          {experiences.map((experience, index) => (
+            <div key={index} className="mb-12 pl-8 relative">
+              {/* Dot */}
+              <div className={`absolute w-8 h-8 ${theme === 'light' ? 'bg-blue-600' : 'bg-blue-500'} rounded-full -left-4 top-1.5 shadow-lg flex items-center justify-center`}>
+                <div className={`w-4 h-4 ${theme === 'light' ? 'bg-gray-100' : 'bg-gray-900'} rounded-full`}></div>
+              </div>
+
+              {/* Timeline content */}
+              <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} mb-1`}>{experience.date}</p>
+              <h2 className="text-2xl font-bold mb-1">{experience.title}</h2>
+              <h3 className={`text-xl font-semibold mb-2 ${theme === 'light' ? 'text-gray-800' : 'text-gray-300'}`}>{experience.company}</h3>
+              <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-400'}`}>{experience.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
