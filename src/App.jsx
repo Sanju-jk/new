@@ -13,7 +13,7 @@ import Contact from './screens/Contact';
 const App = () => {
     return (
         <ThemeProvider>
-        <Router>
+        <Router basename="/portfolio/">
             <div className="flex">
                 <Sidebar />
                 <div className="ml-64 w-full">
