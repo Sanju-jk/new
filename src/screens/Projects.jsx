@@ -27,16 +27,16 @@ const Projects = () => {
                 { name: 'Express.js', iconClass: 'fas fa-server', color: '#666666' },
                 { name: 'MongoDB', iconClass: 'fas fa-database', color: '#4DB33D' }
             ],
-            github: 'https://github.com/your-repo/foodify'
+            github: 'https://github.com/sanju-jk/food-app'
         },
         {
             title: 'Portfolio Website',
             description: 'A personal portfolio website built with React and Tailwind CSS.',
-            features: ['Sidebar Navigation Menu', 'Contact Form', 'Carousel for Project Showcase'],
+            features: ['Sidebar Navigation Menu', 'Contact Form', 'Carousel for Project Showcase', 'theming'],
             technologies: [
                 { name: 'React', iconClass: 'fab fa-react', color: '#61DBFB' }
             ],
-            github: 'https://github.com/your-repo/portfolio'
+            github: 'https://github.com/sanju-jk/portfolio'
         }
     ];
 
@@ -90,7 +90,7 @@ const Projects = () => {
                                     className={`flex-shrink-0 w-full rounded-lg ${index === currentIndex ? 'block' : 'hidden'} ${theme === 'light' ? 'bg-gray-200 text-gray-800' : 'bg-gray-800 text-gray-300'}`}
                                 >
                                     <div className={`w-full h-40 ${theme === 'light' ? 'bg-gray-300' : 'bg-gray-700'} border border-gray-600 rounded-lg mx-auto`}>
-                                        <h3 className={`text-3xl mt-4 font-poppins font-bold text-center  ${theme === 'light' ? 'text-dark' : 'text-teal-400'}`}>
+                                        <h3 className={`text-3xl mt-4 font-poppins font-bold text-center  ${theme === 'light' ? 'text-dark' : 'text-light'}`}>
                                             {project.title}
                                         </h3>
 
