@@ -10,12 +10,12 @@ const Projects = () => {
         {
             title: 'Admin Panel | EasyToHire',
             description: 'Developed an admin panel for the EasyToHire recruitment platform using React and Bootstrap during a course at Infocampus. The panel allows admins to manage job listings, user accounts, and applications.',
-            features: ['Job Listing Management', 'User Account Management', 'Application Tracking'],
+            features: ['Job Listing Management', 'User Account Management'],
             technologies: [
                 { name: 'React', iconClass: 'fab fa-react', color: '#61DBFB' },
                 { name: 'Bootstrap', iconClass: 'fab fa-bootstrap', color: '#563d7c' }
             ],
-            github: '' // GitHub link
+            github: 'https://github.com/sanju-jk/admin-panel'
         },
         {
             title: 'GoFood',
@@ -66,7 +66,7 @@ const Projects = () => {
 
             <div className={`max-w-5xl mx-auto p-8 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-900 text-white'} relative`}>
                 <h1 className={`text-4xl font-bold font-poppins mb-12 text-center  ${theme === 'light' ? 'text-dark' : 'text-gray-200'}`}>
-                    <i className={`fa fa-diagram-project  ${theme === 'light' ? 'text-blue-700' : 'text-teal-400'}`}></i> Projects
+                    <i className={`fa fa-diagram-project  ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}></i> Projects
                 </h1>
 
                 <div className="relative flex justify-center items-center">
@@ -82,7 +82,7 @@ const Projects = () => {
                     {/* Project Card */}
                     <div className={`w-full max-w-lg mx-auto px-4 overflow-hidden relative ${theme === 'light' ? 'bg-gray-200' : 'bg-gray-800'} text-gray-300 shadow-md`} style={{ height: '450px' }}>
                         <div
-                            className={`flex transition-transform duration-300 ${animateDirection === 'left' ? 'animate-fade-left' : animateDirection === 'right' ? 'animate-fade-right' : ''}`}
+                            className={`flex transition-transform duration-300  ${animateDirection === 'left' ? 'animate-fade-left' : animateDirection === 'right' ? 'animate-fade-right' : ''}`}
                         >
                             {projects.map((project, index) => (
                                 <div
@@ -112,14 +112,14 @@ const Projects = () => {
                                             {project.description}
                                         </p>
 
-                                        <p className={`text-md  mb-2 mx-6 text-left  ${theme === 'light' ? 'text-blue-700' : 'text-teal-400'}`}>
+                                        <p className={`text-md  mb-2 mx-6 text-left  ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}>
                                             Features
                                         </p>
                                         <ul className={`list-none p-0 m-0  grid grid-cols-2 gap-2 ${theme === 'light' ? 'text-gray-900' : 'text-gray-400'}`}>
                                             {project.features.map((feature, index) => (
                                                 <li key={index} className="flex items-center text-sm">
                                                     <svg
-                                                        className={`w-4 h-4 mr-2 ${theme === 'light' ? 'text-blue-700' : 'text-teal-400'}`}
+                                                        className={`w-4 h-4 mr-2 ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}
                                                         fill="none"
                                                         stroke="currentColor"
                                                         viewBox="0 0 24 24"
@@ -140,7 +140,7 @@ const Projects = () => {
                                                     href={project.github}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className={` hover:underline hover:text-teal-200 flex items-center justify-center ${theme === 'light' ? 'text-blue-700' : 'text-teal-400'}`}
+                                                    className={` hover:underline hover:text-teal-200 flex items-center justify-center ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}
                                                 >
                                                     <i className="fab fa-github mr-2"></i>
                                                     View GitHub Repo
@@ -156,7 +156,7 @@ const Projects = () => {
                     {/* Next Button */}
                     <button
                         onClick={handleNext}
-                        className={`absolute right-10 top-1/2 transform -translate-y-1/2 p-2 rounded-full ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} hover:text-teal-300 transition duration-300`}
+                        className={`absolute right-10 top-1/2 transform -translate-y-1/2 p-2 rounded-full ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'} hover:text-blue-500 transition duration-300`}
                         style={{ fontSize: '3rem', zIndex: 10 }}
                     >
                         &#8250;
@@ -169,7 +169,7 @@ const Projects = () => {
                         <div
                             key={index}
                             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                                    ? (theme === 'light' ? 'bg-blue-700 w-6' : 'bg-teal-400 w-6')  // Active dot color
+                                    ? (theme === 'light' ? 'bg-blue-600 w-6' : 'bg-blue-400 w-6')  // Active dot color
                                     : (theme === 'light' ? 'bg-gray-400' : 'bg-gray-600')  // Inactive dot color
                                 }`} />
                     ))}

@@ -8,8 +8,16 @@ const About = () => {
 
 
     return (
-        <div className={`flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-10 relative min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-neutral-900 text-gray-200' : 'bg-gray-100 text-gray-800'}`}>
-   
+        <div
+            className={`flex flex-col lg:flex-row items-center justify-between px-8 lg:px-20 py-10 relative min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 text-gray-200' : 'bg-gray-100 text-gray-800'}`}
+            // style={{
+            //     backgroundImage: `url('https://plus.unsplash.com/premium_photo-1664640458486-1ef3c8738cf9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFic3RyYWN0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D')`,  // Set your background image URL here
+            //     backgroundSize: 'cover',
+            //     backgroundPosition: 'center',
+            //     backgroundRepeat: 'no-repeat',
+            // }}
+        >
+
             {/* Download Resume and Contact Button */}
             <div className="absolute top-6 right-6">
                 <a

@@ -46,8 +46,8 @@ const Experience = () => {
   return (
     <div className={`${theme === 'light' ? 'bg-gray-100' : 'bg-gray-900'} min-h-screen`}>
       <div className={`max-w-5xl mx-auto p-8 min-h-screen ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-900 text-white'}`}>
-        <h1 className="text-4xl font-bold mb-12 text-center">
-          <i className="fa fa-briefcase text-yellow-500"></i> Experience
+        <h1 className={`text-4xl font-bold mb-12 text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+          <i className={`fa fa-briefcase ${theme === 'light' ? 'text-blue-600' : 'text-blue-400'}`}></i> Experience
         </h1>
         <div className={`relative border-l-4 ${theme === 'light' ? 'border-blue-600' : 'border-blue-500'}`}>
           {experiences.map((experience, index) => (
