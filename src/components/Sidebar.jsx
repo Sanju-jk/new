@@ -81,8 +81,8 @@ const Sidebar = () => {
                         onChange={toggleTheme}
                         checked={theme === 'dark'}
                     />
-                    <div className="toggle-bg w-14 h-8 bg-gray-400 rounded-full p-1 duration-300 ease-in-out">
-                        <div className={`dot w-6 h-6 bg-white rounded-full shadow-md transform ${theme === 'dark' ? 'translate-x-6' : ''}`}></div>
+                    <div className={`toggle-bg w-14 h-8  ${theme === 'dark' ? 'bg-gray-300' : 'bg-gray-400'} rounded-full p-1 duration-300 ease-in-out`}>
+                        <div className={`dot w-6 h-6  ${theme === 'dark' ? 'bg-neutral-900' : 'bg-blue-500'} rounded-full shadow-md transform ${theme === 'dark' ? 'translate-x-6' : ''}`}></div>
                     </div>
                     <span className="ml-3 text-sm">
                         {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
